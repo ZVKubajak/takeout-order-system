@@ -4,7 +4,7 @@ def place_order(menu):
     their receipt and total price.
 
     Parameters:
-    menu (dictionary): A nested dictionary containing the menu items and their 
+    menu (dictionary): A nested dictionary containing the menu items and their
                        prices, using the following format:
                         {
                             "Food category": {
@@ -31,7 +31,7 @@ def place_order(menu):
     # * TODO: Create a continuous while loop so customers can order multiple items
     while place_order:
         item_number = 1
-    
+
         # * TODO: Loop through the menu dictionary, extracting the food category and
         # the options for each category
         for food_category, options in menu.items():
@@ -63,20 +63,21 @@ def place_order(menu):
             # their order
             print("Thank you for your order.")
 
-            # TODO: Use a list comprehension to create a list called prices_list,
+            # * TODO: Use a list comprehension to create a list called prices_list,
             # which contains the total prices for each item in the order list:
             # The total price for each item should multiply the price by quantity
-            prices_list = 
+            prices_list = [item["Price"] * item["Quantity"] for item in order]
 
-            # TODO: Create an order_total from the prices list using sum()
+            # * TODO: Create an order_total from the prices list using sum()
             # and round the prices to 2 decimal places.
+            order_total = round(sum(prices_list), 2)
 
             # Write a break statement or set the condition to False to exit
             # the ordering loop
             place_order = False
 
-    # TODO: Return the order list and the order total
-    return receipt, total_price
+    # * TODO: Return the order list and the order total
+    return order, order_total
 
 
 def update_order(order, menu_selection, menu_items):
@@ -94,34 +95,34 @@ def update_order(order, menu_selection, menu_items):
     order (list): A list of dictionaries containing the menu item name, price,
                     and quantity ordered (updated as needed).
     """
-    # * TODO: Check if the customer's input string can be converted 
+    # * TODO: Check if the customer's input string can be converted
     # to an integer and prints an error message if it does not
     if menu_selection.isdigit():
-    
+
         # * TODO: Convert the menu selection to an integer
         menu_selection = int(menu_selection)
 
-        #  * TODO: Write a conditional statement that checks if the customer's input is 
+        #  * TODO: Write a conditional statement that checks if the customer's input is
         # an item on the menu and prints an error message if it is not
         if menu_selection == menu_items:
-        
+
             # Store the item name as a variable
             item_name = menu_items[menu_selection]["Item name"]
 
-            # * TODO: A prompt (input) to the customer that prints the name of the 
+            # * TODO: A prompt (input) to the customer that prints the name of the
             # menu item to the user and asks the quantity they would like to order.
             # Store the return in a quantity variable
             quantity_selection = input(f"How many orders of {item_name} would you like to order?")
-            
-            # * TODO: Write a conditional statement that checks if the input quantity 
-            # can be converted to an integer, then converts it to an integer. 
+
+            # * TODO: Write a conditional statement that checks if the input quantity
+            # can be converted to an integer, then converts it to an integer.
             # Have it default to 1 if it does not.
             if quantity_selection.isdigit():
                 quantity_selection = int(quantity_selection)
             else:
                 quantity_selection = 1
 
-            # * TODO: Add a dictionary with the item name, price, and quantity to the 
+            # * TODO: Add a dictionary with the item name, price, and quantity to the
             # order list. Use the following names for the dictionary keys:
             # "Item name", "Price", "Quantity"
             entry = {
