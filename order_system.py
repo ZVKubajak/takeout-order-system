@@ -28,17 +28,21 @@ def place_order(menu):
     print("Welcome to the Generic Take Out Restaurant.")
 
     place_order = True
-    # TODO: Create a continuous while loop so customers can order multiple items
+    # * TODO: Create a continuous while loop so customers can order multiple items
+    while place_order:
+        item_number = 1
     
-        # TODO: Loop through the menu dictionary, extracting the food category and
+        # * TODO: Loop through the menu dictionary, extracting the food category and
         # the options for each category
+        for food_category, options in menu.items():
 
-            # TODO: Loop through the options for each food category, extracting the
+            # * TODO: Loop through the options for each food category, extracting the
             # meal and the price
-                # TODO: Print the menu item number, food category, meal, and price
-
-                # TODO: Update the menu selection number
-                
+            for meal, price in options.items():
+                # * TODO: Print the menu item number, food category, meal, and price
+                print(f"{item_number}: {food_category} {meal} - ${price}")
+                # * TODO: Update the menu selection number
+                item_number += 1
 
         # Ask customer to input menu item number
         menu_selection = input("Type menu number: ")
@@ -70,6 +74,7 @@ def place_order(menu):
             place_order = False
 
     # TODO: Return the order list and the order total
+    return receipt, total_price
     
 
 
