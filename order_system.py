@@ -55,8 +55,9 @@ def place_order(menu):
         # Let the customer know if they should type 'n' or 'N' to quit
         keep_ordering = input("Would you like to keep ordering? (N) to quit: ")
 
-        # TODO: Write a conditional statement that checks if the customer types
+        # * TODO: Write a conditional statement that checks if the customer types
         # 'n' or 'N'
+        if keep_ordering.lower() == "n":
 
             # Since the customer decided to stop ordering, thank them for
             # their order
@@ -65,6 +66,7 @@ def place_order(menu):
             # TODO: Use a list comprehension to create a list called prices_list,
             # which contains the total prices for each item in the order list:
             # The total price for each item should multiply the price by quantity
+            prices_list = 
 
             # TODO: Create an order_total from the prices list using sum()
             # and round the prices to 2 decimal places.
@@ -75,7 +77,6 @@ def place_order(menu):
 
     # TODO: Return the order list and the order total
     return receipt, total_price
-    
 
 
 def update_order(order, menu_selection, menu_items):
@@ -93,36 +94,51 @@ def update_order(order, menu_selection, menu_items):
     order (list): A list of dictionaries containing the menu item name, price,
                     and quantity ordered (updated as needed).
     """
-    # TODO: Check if the customer's input string can be converted 
+    # * TODO: Check if the customer's input string can be converted 
     # to an integer and prints an error message if it does not
-
+    if menu_selection.isdigit():
     
-        # TODO: Convert the menu selection to an integer
+        # * TODO: Convert the menu selection to an integer
+        menu_selection = int(menu_selection)
 
-
-        # TODO: Write a conditional statement that checks if the customer's input is 
+        #  * TODO: Write a conditional statement that checks if the customer's input is 
         # an item on the menu and prints an error message if it is not
+        if menu_selection == menu_items:
         
             # Store the item name as a variable
             item_name = menu_items[menu_selection]["Item name"]
 
-            # TODO: A prompt (input) to the customer that prints the name of the 
+            # * TODO: A prompt (input) to the customer that prints the name of the 
             # menu item to the user and asks the quantity they would like to order.
             # Store the return in a quantity variable
+            quantity_selection = input(f"How many orders of {item_name} would you like to order?")
             
-
-            # TODO: Write a conditional statement that checks if the input quantity 
+            # * TODO: Write a conditional statement that checks if the input quantity 
             # can be converted to an integer, then converts it to an integer. 
             # Have it default to 1 if it does not.
+            if quantity_selection.isdigit():
+                quantity_selection = int(quantity_selection)
+            else:
+                quantity_selection = 1
 
-
-            # TODO: Add a dictionary with the item name, price, and quantity to the 
+            # * TODO: Add a dictionary with the item name, price, and quantity to the 
             # order list. Use the following names for the dictionary keys:
             # "Item name", "Price", "Quantity"
-            
+            entry = {
+                "Item Name": item_name,
+                "Price": 0,
+                "Quantity": quantity_selection
+            }
 
-    # TODO: Return the updated order
-    
+            order.append(entry)
+
+        else:
+            print("Error: Invalid menu selection.")
+    else:
+        print("Error: Please enter a valid menu number.")
+
+    # * TODO: Return the updated order
+    return order
 
 
 def print_itemized_receipt(receipt):
