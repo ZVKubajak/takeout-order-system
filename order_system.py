@@ -40,7 +40,7 @@ def place_order(menu):
             # meal and the price
             for meal, price in options.items():
                 # * TODO: Print the menu item number, food category, meal, and price
-                print(f"{item_number}: {food_category} {meal} - ${price}")
+                print(f"{item_number}. {meal} {food_category}: ${price}")
                 # * TODO: Update the menu selection number
                 item_number += 1
 
@@ -104,7 +104,7 @@ def update_order(order, menu_selection, menu_items):
 
         #  * TODO: Write a conditional statement that checks if the customer's input is
         # an item on the menu and prints an error message if it is not
-        if menu_selection == menu_items:
+        if menu_selection in menu_items:
 
             # Store the item name as a variable
             item_name = menu_items[menu_selection]["Item name"]
@@ -112,7 +112,7 @@ def update_order(order, menu_selection, menu_items):
             # * TODO: A prompt (input) to the customer that prints the name of the
             # menu item to the user and asks the quantity they would like to order.
             # Store the return in a quantity variable
-            quantity_selection = input(f"How many orders of {item_name} would you like to order?")
+            quantity_selection = input(f"How many orders of {item_name} would you like to order? ")
 
             # * TODO: Write a conditional statement that checks if the input quantity
             # can be converted to an integer, then converts it to an integer.
@@ -126,8 +126,8 @@ def update_order(order, menu_selection, menu_items):
             # order list. Use the following names for the dictionary keys:
             # "Item name", "Price", "Quantity"
             entry = {
-                "Item Name": item_name,
-                "Price": 0,
+                "Item name": item_name,
+                "Price": menu_items[menu_selection]["Price"],
                 "Quantity": quantity_selection
             }
 
