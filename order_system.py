@@ -211,7 +211,7 @@ def print_menu_line(index, food_category, meal, price):
 
 def get_menu_items_dict(menu):
     """
-    Creates a dictionary of menu items and their prices mapped to their menu 
+    Creates a dictionary of menu items and their prices mapped to their menu
     number.
 
     Parameters:
@@ -256,7 +256,7 @@ def get_menu_dictionary():
                         }
     """
     # Create a meal menu dictionary
-    #"""
+    # """
     meals = {
         "Burrito": {
             "Chicken": 4.49,
@@ -326,4 +326,3 @@ if __name__ == "__main__":
 
     # Print the receipt footer with the total price
     print_receipt_footer(total_price)
-
