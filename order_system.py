@@ -142,7 +142,7 @@ def update_order(order, menu_selection, menu_items):
     return order
 
 
-def print_itemized_receipt(receipt):
+def print_itemized_receipt(receipt):  # receipt is order
     """
     Prints an itemized receipt for the customer.
 
@@ -153,14 +153,18 @@ def print_itemized_receipt(receipt):
     # Uncomment the following line if you need to check the structure of the receipt
     #print(receipt)
 
-    # TODO: Loop through the items in the customer's receipt
-    
-        # TODO: Store the dictionary items ("Item name", "Price", "Quantity") as variables
-        
+    # * TODO: Loop through the items in the customer's receipt
+    for entry in receipt:
 
-        # TODO: Print the receipt line using the print_receipt_line function
+        # * TODO: Store the dictionary items ("Item name", "Price", "Quantity") as variables
+        item_name = entry["Item name"]
+        price = entry["Price"]
+        quantity = entry["Quantity"]
+
+        # * TODO: Print the receipt line using the print_receipt_line function
         # send the item name, price, and quantity as separate arguments
-        
+        print_receipt_line(item_name, price, quantity)
+
 
 ##################################################
 #  STARTER CODE
