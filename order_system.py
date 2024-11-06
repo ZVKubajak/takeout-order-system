@@ -32,9 +32,13 @@ def place_order(menu):
     while place_order:
         item_number = 1
 
+        print("What would you like to order? ")
+
+        print_menu_heading()
+
         for food_category, options in menu.items():
             for meal, price in options.items():
-                print(f"{item_number}. {meal} {food_category}: ${price}")
+                print_menu_line(item_number, food_category, meal, price)
                 item_number += 1
 
         # Ask customer to input menu item number
@@ -91,7 +95,7 @@ def update_order(order, menu_selection, menu_items):
             item_name = menu_items[menu_selection]["Item name"]
 
             # Store the return in a quantity variable
-            quantity_selection = input(f"How many orders of {item_name} would you like to order? ")
+            quantity_selection = input(f"What quantity of {item_name} would you like? \n(This will default to 1 if number is not entered)\n")
 
             if quantity_selection.isdigit():
                 quantity_selection = int(quantity_selection)
@@ -110,7 +114,7 @@ def update_order(order, menu_selection, menu_items):
         else:
             print("Error: Invalid menu selection.")
     else:
-        print("Error: Please enter a valid menu number.")
+        print("a was not a menu option.")
 
     return order
 
